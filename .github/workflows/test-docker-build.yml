@@ -1,0 +1,16 @@
+---
+name: Docker build
+
+on:
+    - push
+
+jobs:
+    docker:
+        runs-on: ubuntu-latest
+        name: build and test
+        steps:
+            - uses: actions/checkout@v1
+            - name: docker build
+              run: docker build . -t api
+            - name: run Perl tests
+              run: docker run -i api carton exec prove -lr t

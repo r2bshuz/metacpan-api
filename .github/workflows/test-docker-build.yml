@@ -15,4 +15,5 @@ jobs:
             - name: run Perl tests
               run: docker run -i api carton exec prove -lr t
               env:
+                  ES_TEST: "localhost:9200"
                   METACPAN_SERVER_CONFIG_LOCAL_SUFFIX: testing

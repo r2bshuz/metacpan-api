@@ -11,6 +11,6 @@ jobs:
         steps:
             - uses: actions/checkout@v1
             - name: docker build
-              run: docker build . -t api
+              run: docker build . --build-arg CPM_ARGS='--with-test' -t api
             - name: run Perl tests
               run: docker run -i api carton exec prove -lr t

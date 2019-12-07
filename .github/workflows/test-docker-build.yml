@@ -14,3 +14,5 @@ jobs:
               run: docker build . --build-arg CPM_ARGS='--with-test' -t api
             - name: run Perl tests
               run: docker run -i api carton exec prove -lr t
+              env:
+                  METACPAN_SERVER_CONFIG_LOCAL_SUFFIX: testing
